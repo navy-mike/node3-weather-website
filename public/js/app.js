@@ -1,4 +1,3 @@
-console.log('client javascript file is loaded.')
 
 //console.log('hello')
 
