@@ -1,4 +1,3 @@
-
 //console.log('hello')
 
 const weatherform = document.querySelector('form')
@@ -22,7 +21,30 @@ weatherform.addEventListener('submit', (e) => {
 
   //console.log(location)
 
-  fetch('http://localhost:3000/weather?address=' + location).then((response) => {
+  //####### LOCAL HOST CODE BLOCK #######
+  // fetch('http://localhost:3000/weather?address=' + location).then((response) => {
+  //   response.json().then((data) => {
+  //     if (data.error) {
+  //       //console.log(data.error)
+  //       errormsg.textContent = data.error
+  //     }
+  //     else {
+  //       errormsg.textContent = ''
+  //       locationdata.textContent = data.location
+  //       forecastdata.textContent = data.forecast
+  //       summarydata.textContent = data.summary
+
+  //       // + '<\br>' + data.forecast + '<\br' + data.summary
+  //       //console.log(data.location)
+  //       //console.log(data.forecast)
+  //       //console.log(data.summary)
+  //     }
+  //   })
+  // })
+  //#####################################
+
+  //####### HEROKU CODE BLOCK #######
+  fetch('/weather?address=' + location).then((response) => {
     response.json().then((data) => {
       if (data.error) {
         //console.log(data.error)
@@ -41,5 +63,6 @@ weatherform.addEventListener('submit', (e) => {
       }
     })
   })
+//#####################################
 
 })

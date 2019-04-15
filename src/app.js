@@ -5,6 +5,7 @@ const geocode = require('./utils/geocode.js')
 const forecast = require('./utils/forecast.js')
 
 const app = express() //create server
+const port = process.env.PORT || 3000  //<==heroku port definitions and locally port definitions
 
 //console.log(__dirname)  //C:\nodejs_stuff\udemycoursethecomplete\web-server\src
 //console.log(__filename)  //C:\nodejs_stuff\udemycoursethecomplete\web-server\src
@@ -145,9 +146,18 @@ app.get('*', (req, res) => {
 })
 
 //start server listening on port 3000. default web ports are usually 80
-app.listen(3000, () => {    
-  console.log('server is up on port 3000.')
+//----- LOCAL LISTEN CODE -----
+//app.listen(3000, () => {    
+//  console.log('server is up on port 3000.')
+//}) 
+//-----------------------------
+
+//----- HEROKU LISTEN CODE -----
+app.listen(port, () => {  //port is defined at top of code
+  console.log('server is up on port ' + port + '3000.')
 }) 
+//-----------------------------
+
 
 
 
