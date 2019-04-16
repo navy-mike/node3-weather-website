@@ -32,14 +32,14 @@ app.get('',(req,res) => {
 })
 
 app.get('/about', (req, res) => { 
-  res.render('About', {
+  res.render('about', {
     title: 'About',
     name: 'Michael'
   })
 })
 
 app.get('/help', (req, res) => {
-  res.render('Help', {
+  res.render('help', {
     title: 'Help',
     name: 'Michael',
     message: 'This is the Help Message.'
