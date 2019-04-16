@@ -154,7 +154,7 @@ app.get('*', (req, res) => {
 
 //----- HEROKU LISTEN CODE -----
 app.listen(port, () => {  //port is defined at top of code
-  console.log('server is up on port ' + port + '3000.')
+  console.log('server is up on port ' + port + '.')
 }) 
 //-----------------------------
 
