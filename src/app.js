@@ -81,7 +81,9 @@ app.get('/weather', (req, res) => {
                 res.send({
                   forecast: forecastData.forecastinfo,
                   location: geocodeData.placename,
-                  summary: forecastData.dailysummary
+                  summary: forecastData.dailysummary,
+                  temphigh: forecastData.temphigh,
+                  templow: forecastData.templow
                 })  //send JSON
 
 

@@ -55,6 +55,9 @@ weatherform.addEventListener('submit', (e) => {
         locationdata.textContent = data.location
         forecastdata.textContent = data.forecast
         summarydata.textContent = data.summary
+        temphigh.textContent = data.temphigh
+        templow.textContent = data.templow
+        
 
         // + '<\br>' + data.forecast + '<\br' + data.summary
         //console.log(data.location)

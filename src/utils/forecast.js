@@ -6,6 +6,8 @@ const forecast = (latitude, longitude, callback) => {
   if(!isNaN(latitude) && !isNaN(longitude))
   {
     const forecasturl = 'https://api.darksky.net/forecast/4ffdf0c8a40094edb091a94595ccbb85/' + latitude + ',' + longitude + '?units=us'
+    //example: url for santaquin area
+    //https://api.darksky.net/forecast/4ffdf0c8a40094edb091a94595ccbb85/39.9755,-111.7852?units=us
 
     //console.log(forecasturl)
 
@@ -22,8 +24,11 @@ const forecast = (latitude, longitude, callback) => {
         const currtemp = response.body.currently.temperature
         const currchance = response.body.currently.precipProbability * 100 + ' percent'
         const dailysummary = response.body.daily.data[0].summary
+        const dailyhigh = "Temp High=" + response.body.daily.data[0].temperatureHigh
+        const dailylow = "Temp Low=" + response.body.daily.data[0].temperatureLow
 
         const forecastinfo = "It is currently " + currtemp + " degrees out. There is a " + currchance + "% chance of precipatation"
+        //. High Temperature=" + dailyhigh + ". Low Temperature=" + dailylow
         //one way to call the callback
         //callback(undefined, "It is currently " + currtemp + " degrees out. There is a " + currchance + "% chance of precipatation")
         //another way to return a json structure
@@ -31,7 +36,9 @@ const forecast = (latitude, longitude, callback) => {
           currtemp: currtemp,
           currchance: currchance,
           dailysummary: dailysummary,
-          forecastinfo: forecastinfo
+          forecastinfo: forecastinfo,
+          temphigh: dailyhigh,
+          templow: dailylow
         })
         //console.log(response.body.daily.data[0].summary)
         //console.log("It is currently " + currtemp + " degrees out. There is a " + currchance + "% chance of precipatation")
